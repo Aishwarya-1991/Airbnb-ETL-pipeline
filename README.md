@@ -2,6 +2,15 @@
 
 This repository hosts the project from Udemy, building a data pipeline for Airbnb data using dbt and Snowflake. It covers data ingestion, transformation, testing, documentation, snapshots, and optional orchestration with Dagster.
 
+**Acknowledgements:**
+
+Zoltan C. Toth: Author of the Udemy course "Complete dbt Bootcamp: Zero to Hero," providing foundational dbt knowledge and Airbnb project inspiration.
+
+dbt Labs: For the dbt framework, enabling efficient data transformations.
+
+Snowflake: For the cloud data platform hosting the Airbnb data.
+
+dbt Community: For packages like dbt_utils and ecosystem contributions.
 
 **Overview**
 
