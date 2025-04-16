@@ -1,6 +1,6 @@
 **Airbnb Data Pipeline with dbt and Snowflake**
 
-This repository hosts the project from Udemy, building a data pipeline for Airbnb data using dbt and Snowflake. It covers data ingestion, transformation, testing, documentation, snapshots, and optional orchestration with Dagster.
+This project implements an ETL pipeline for Airbnb data using dbt and Snowflake, transforming raw datasets (listings, reviews, hosts) into analytical models for insights. The pipeline includes dbt models, snapshots, seeds, tests, macros, analyses, and documentation, with optional Dagster orchestration. It leverages Snowflake for data storage and processing, ensuring data quality and lineage.
 
 **Acknowledgements:**
 
@@ -12,14 +12,9 @@ Snowflake: For the cloud data platform hosting the Airbnb data.
 
 dbt Community: For packages like dbt_utils and ecosystem contributions.
 
-**Overview**
+**Purpose**
 
-The project processes Airbnb data (listings, reviews, hosts) stored in Snowflake, transforming it through dbt models into cleansed and enriched datasets that is used in Preset to understand the impact of full moon on reviews. Key outputs include:
-
-Listings with host details.
-Reviews flagged for full moon dates.
-Snapshots for tracking changes.
-The pipeline demonstrates dbt best practices, including testing, macros, documentation, and orchestration.
+The project processes Airbnb data (listings, reviews, hosts) stored in Snowflake, using dbt models to transform it into cleansed and enriched datasets that are used in the BI tool Preset to analyze the impact of the full moon on reviews
 
 **Prerequisites**
 
