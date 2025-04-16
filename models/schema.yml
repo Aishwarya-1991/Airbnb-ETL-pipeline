@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: dim_listing_cleansed
+    description: Dimension table for Airbnb listing after cleaning
+    columns:
+      - name: listing_id
+        description: primary key for listing
+        tests:
+          - unique
+          - not_null
+      - name: host_id
+        description : forieng key that refers dim_hosts_cleansed table.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_hosts_cleansed')
+              field: host_id  # Verify this matches `dim_hosts_cleansed` column name
+      - name: room_type
+        tests:
+          - accepted_values:
+              values: ['Entire home/apt', 'Private room', 'Shared room', 'Hotel room']
+      - name: minimum_nights
+        description: should always be greater than or equal to 1
+        tests:
+          - positive_value
