@@ -131,3 +131,17 @@ Create a dbt project (all platforms):
 ```sh
 dbt init dbtlearn
 ```
+## Configure Profiles: Edit ~/.dbt/profiles.yml 
+```dbtlearn:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: <your-snowflake-account>
+      user: dbt
+      password: dbtPassword123
+      role: TRANSFORM
+      database: AIRBNB
+      warehouse: COMPUTE_WH
+      schema: RAW
+      threads: 4 ```
