@@ -40,27 +40,55 @@ cd Airbnb-ETL-pipeline.
 
 step 3: Run following commands for full workflow:.
 ```
-# Setup
-cd dbtlearn
-source venv/bin/activate
+# Test connection
 dbt debug
+
+# Install dependencies
 dbt deps
 
-# Run pipeline
+# Load seed data
 dbt seed
+
+# Run models
 dbt run
+
+# Run models with full refresh (optional)
+dbt run --full-refresh
+
+# Run specific model (example)
+dbt run --select dim_listings_cleansed
+
+# Run snapshots
 dbt snapshot
+
+# Run specific snapshot (example)
+dbt snapshot --select scd_raw_listings
+
+# Test models
 dbt test
+
+# Test specific model (example)
+dbt test --select dim_listings_cleansed
+
+# Test specific source (example)
+dbt test --select source:airbnb.listings
 
 # Run macros
 dbt run-operation learn_logging
-dbt run-operation learn_variables --vars "{user_name: zoltanctoth}"
+dbt run-operation learn_variables
+dbt run-operation learn_variables --vars "{user_name: zoltanctoth, in_test: True}"
+dbt test --select no_nulls_in_dim_listings
+dbt run-operation no_nulls_in_columns --args '{model: ref("dim_listings_cleansed")}'
 
-# Generate docs
+# Run incremental model (example)
+dbt run --select fct_reviews --vars '{start_date: "2024-02-15 00:00:00", end_date: "2024-03-15 23:59:59"}'
+
+# Compile analysis
+dbt compile --select full_moon_no_sleep
+
+# Generate documentation
 dbt docs generate
-dbt docs serve
 
-# Optional: Dagster
-cd ../dbt_dagster_project
-DAGSTER_DBT_PARSE_PROJECT_ON_LOAD=1 dagster dev
+# Serve documentation
+dbt docs serve
 ```
